@@ -44,11 +44,17 @@ I'm a Staff Software Engineer with over 15 years of experience who loves to auto
 
 ---
 
-### My Activity
-
 <p align="center">
-  <img src="https://stats-gamma-three.vercel.app/api?username=zalewskigrzegorz&show_icons=true&include_all_commits=true&theme=dracula&hide_border=true&count_private=true" alt="Grzegorz's GitHub Stats" />
-  <img src="https://stats-gamma-three.vercel.app/api/top-langs/?username=zalewskigrzegorz&layout=compact&theme=dracula&hide_border=true" alt="Top Languages" />
+  <img 
+    src="https://stats-gamma-three.vercel.app/api?username=zalewskigrzegorz&show_icons=true&include_all_commits=true&theme=dracula&hide_title=true&count_private=true&hide_rank=true&hide=stars&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage" 
+    alt="Greg's GitHub Stats" 
+    height="250px"
+  />
+  <img 
+    src="https://stats-gamma-three.vercel.app/api/top-langs/?username=zalewskigrzegorz&layout=normal&hide_title=true&theme=dracula"
+    alt="Top Languages"
+    height="250"
+  />
 </p>
 
 ---
