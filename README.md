@@ -21,6 +21,11 @@ I'm a Staff Software Engineer with over 15 years of experience who loves to auto
 > *   My goal is to automate everything possible, from my code pipelines to my smart home.
 > *   You can check out my setup in my [dotfiles repository](https://github.com/zalewskigrzegorz/dotfiles).
 
+🐈 **Brewing now: [gzyms](https://gzyms.dev)**
+
+> My own status bar for macOS. Workspaces, notifications and meetings, up where your eyes already are, at ~0% CPU.
+> Not out yet, I'm using it daily first. Watch [gzyms.dev](https://gzyms.dev).
+
 ---
 
 ### My Toolbox
