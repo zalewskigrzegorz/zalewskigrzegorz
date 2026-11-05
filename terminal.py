@@ -33,9 +33,10 @@ def say(*spans):
 
 
 def prompt(cmd):
-    # my real nushell prompt: 🦄, then the command in cyan with the first word bold
+    # my real two-line starship prompt; its Nerd Font icons are left out, viewers don't have the font
+    lines.append([(0, "mac", PINK, True), (4, "zalewskigrzegorz", PURPLE, True), (21, "on", FG, False), (24, "master", CYAN, True)])
     word, _, rest = cmd.partition(" ")
-    lines.append([(0, "🦄", FG, False), (3, word, CYAN, True), (4 + len(word), rest, CYAN, False)])
+    lines.append([(0, "🦄", FG, False), (3, "❯", PURPLE, True), (5, word, CYAN, True), (6 + len(word), rest, CYAN, False)])
 
 
 def table(rows, header=None):
@@ -47,8 +48,9 @@ def table(rows, header=None):
     for r, cells in enumerate(allrows):
         starts = [sum(w[:k]) + 1.5 for k in range(len(w))]
         head = bool(header) and r == 0  # headers are centered, like nushell draws them
-        lines.append([(x + ((cw - 3 - len(t)) / 2 if head else 0), t, c, head)
-                      for x, cw, (t, c) in zip(starts, w, cells)])
+        # the first column (row numbers, record keys) is bold too
+        lines.append([(x + ((cw - 3 - len(t)) / 2 if head else 0), t, c, head or k == 0)
+                      for k, (x, cw, (t, c)) in enumerate(zip(starts, w, cells))])
     lines.append([])
 
 
@@ -60,10 +62,10 @@ prompt("ls ~/projects | where active")
 table(
     header=[("#", PURPLE), ("name", PURPLE), ("what", PURPLE), ("stack", PURPLE)],
     rows=[
-        [("0", PURPLE), ("gzyms", CYAN), ("a status bar for macOS at ~0% CPU, v0.0.1 is out", FG), ("Swift", PINK)],
-        [("1", PURPLE), ("dotfiles", CYAN), ("my whole setup: shell, editor, agents, smart home", FG), ("chezmoi · nu", PINK)],
-        [("2", PURPLE), ("home-lab", CYAN), ("my playground: smart home tools, jarvis-brain assistant", FG), ("Docker · Node", PINK)],
-        [("3", PURPLE), ("HyprMac", CYAN), ("macOS tiling window manager, latest open source contribution", FG), ("Swift", PINK)],
+        [("0", PURPLE), ("gzyms", FG), ("a status bar for macOS at ~0% CPU, v0.0.1 is out", FG), ("Swift", PINK)],
+        [("1", PURPLE), ("dotfiles", FG), ("my whole setup: shell, editor, agents, smart home", FG), ("chezmoi · nu", PINK)],
+        [("2", PURPLE), ("home-lab", FG), ("my playground: smart home tools, jarvis-brain assistant", FG), ("Docker · Node", PINK)],
+        [("3", PURPLE), ("HyprMac", FG), ("macOS tiling window manager, latest open source contribution", FG), ("Swift", PINK)],
     ],
 )
 prompt("brew install zalewskigrzegorz/tap/gzyms")
@@ -102,7 +104,7 @@ for i, spans in enumerate(lines):
              for col, t, c, b in spans if t]
     if i == len(lines) - 1:
         end = max(col + len(t) for col, t, _, _ in spans)
-        parts.append(f'<tspan x="{PAD + end * CW:.1f}" class="c" fill="{FG}">█</tspan>')
+        parts.append(f'<tspan x="{PAD + end * CW:.1f}" class="c" fill="{PURPLE}">█</tspan>')
     if parts:
         out.append(f'<text y="{TOP + i * LH}" class="l" style="animation-delay:{i * STEP:.2f}s">{"".join(parts)}</text>')
 
