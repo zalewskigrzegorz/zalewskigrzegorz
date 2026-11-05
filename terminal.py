@@ -33,7 +33,9 @@ def say(*spans):
 
 
 def prompt(cmd):
-    say(("~ ", BLUE), ("❯ ", GREEN), (cmd, FG))
+    # my real nushell prompt: 🦄, then the command in cyan with the first word bold
+    word, _, rest = cmd.partition(" ")
+    lines.append([(0, "🦄", FG, False), (3, word, CYAN, True), (4 + len(word), rest, CYAN, False)])
 
 
 def table(rows, header=None):
@@ -44,7 +46,9 @@ def table(rows, header=None):
     boxes.append((len(lines), len(allrows), w, bool(header)))
     for r, cells in enumerate(allrows):
         starts = [sum(w[:k]) + 1.5 for k in range(len(w))]
-        lines.append([(x, t, c, bool(header) and r == 0) for x, (t, c) in zip(starts, cells)])
+        head = bool(header) and r == 0  # headers are centered, like nushell draws them
+        lines.append([(x + ((cw - 3 - len(t)) / 2 if head else 0), t, c, head)
+                      for x, cw, (t, c) in zip(starts, w, cells)])
     lines.append([])
 
 
@@ -54,12 +58,12 @@ say(("In IT since 2010: automating, tinkering and solving interesting problems."
 say()
 prompt("ls ~/projects | where active")
 table(
-    header=[("#", GREEN), ("name", GREEN), ("what", GREEN), ("stack", GREEN)],
+    header=[("#", PURPLE), ("name", PURPLE), ("what", PURPLE), ("stack", PURPLE)],
     rows=[
-        [("0", GREEN), ("gzyms", CYAN), ("a status bar for macOS at ~0% CPU, v0.0.1 is out", FG), ("Swift", PINK)],
-        [("1", GREEN), ("dotfiles", CYAN), ("my whole setup: shell, editor, agents, smart home", FG), ("chezmoi · nu", PINK)],
-        [("2", GREEN), ("home-lab", CYAN), ("my playground: smart home tools, jarvis-brain assistant", FG), ("Docker · Node", PINK)],
-        [("3", GREEN), ("HyprMac", CYAN), ("macOS tiling window manager, latest open source contribution", FG), ("Swift", PINK)],
+        [("0", PURPLE), ("gzyms", CYAN), ("a status bar for macOS at ~0% CPU, v0.0.1 is out", FG), ("Swift", PINK)],
+        [("1", PURPLE), ("dotfiles", CYAN), ("my whole setup: shell, editor, agents, smart home", FG), ("chezmoi · nu", PINK)],
+        [("2", PURPLE), ("home-lab", CYAN), ("my playground: smart home tools, jarvis-brain assistant", FG), ("Docker · Node", PINK)],
+        [("3", PURPLE), ("HyprMac", CYAN), ("macOS tiling window manager, latest open source contribution", FG), ("Swift", PINK)],
     ],
 )
 prompt("brew install zalewskigrzegorz/tap/gzyms")
@@ -68,9 +72,9 @@ say(("🍺  gzyms was successfully installed!", FG))
 say()
 prompt("open ~/stack.toml")
 table(rows=[
-    [("terminal", GREEN), ("nushell · tuios · nvim (LazyVim)", FG)],
-    [("work", GREEN), ("TypeScript · React · Node · Postgres · AWS", FG)],
-    [("off hours", GREEN), ("gaming, smart home, keeping a dog and a cat out of trouble", FG)],
+    [("terminal", PURPLE), ("nushell · tuios · nvim (LazyVim)", FG)],
+    [("work", PURPLE), ("TypeScript · React · Node · Postgres · AWS", FG)],
+    [("off hours", PURPLE), ("gaming, smart home, keeping a dog and a cat out of trouble", FG)],
 ])
 prompt("")
 
