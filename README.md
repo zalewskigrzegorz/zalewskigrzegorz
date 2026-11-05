@@ -11,4 +11,4 @@ Workspaces, notifications and meetings, up where your eyes already are, at ~0% C
 brew install zalewskigrzegorz/tap/gzyms
 ```
 
-[gzyms.dev](https://gzyms.dev) · [dotfiles](https://github.com/zalewskigrzegorz/dotfiles) · [LinkedIn](https://www.linkedin.com/in/grzegorzzalewski/)
+[dotfiles](https://github.com/zalewskigrzegorz/dotfiles) · [LinkedIn](https://www.linkedin.com/in/grzegorzzalewski/)
