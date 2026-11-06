@@ -7,7 +7,7 @@ How to update the profile:
 4. Keep the <img alt> on the first line of README.md in sync: screen readers and search see only the alt.
 5. Commit README.md, terminal.py and terminal.svg together and push. The profile updates right away.
 
-Goes stale by hand: the gzyms version.
+Nothing here names a version, so nothing goes stale on a release.
 """
 import sys
 from html import escape
@@ -15,7 +15,7 @@ from html import escape
 BG, FG, DIM = "#1E1E2E", "#F0F0FF", "#9399B2"
 GREEN, BLUE, PURPLE, CYAN, PINK = "#50FA7B", "#8AB4F8", "#B347FF", "#8BE9FD", "#FF6B9D"
 
-FS, LH, PAD, TOP, W = 14, 22, 24, 64, 900
+FS, LH, PAD, TOP, W = 14, 22, 24, 42, 900
 CW = FS * 0.6  # monospace advance
 STEP = 0.12    # seconds between lines appearing
 
@@ -62,7 +62,7 @@ prompt("ls ~/projects | where active")
 table(
     header=[("#", PURPLE), ("name", PURPLE), ("what", PURPLE), ("stack", PURPLE)],
     rows=[
-        [("0", PURPLE), ("gzyms", FG), ("a status bar for macOS at ~0% CPU, v0.0.1 is out", FG), ("Swift", PINK)],
+        [("0", PURPLE), ("gzyms", FG), ("a status bar for macOS at ~0% CPU", FG), ("Swift", PINK)],
         [("1", PURPLE), ("dotfiles", FG), ("my whole setup: shell, editor, agents, smart home", FG), ("chezmoi · nu", PINK)],
         [("2", PURPLE), ("home-lab", FG), ("my playground: smart home tools, jarvis-brain assistant", FG), ("Docker · Node", PINK)],
         [("3", PURPLE), ("HyprMac", FG), ("macOS tiling window manager, latest open source contribution", FG), ("Swift", PINK)],
@@ -82,7 +82,7 @@ prompt("")
 
 H = TOP + LH * len(lines) + PAD - 6
 out = [f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="t">
-<title id="t">Greg Zalewski, Staff Software Engineer at Redocly. Projects: gzyms, dotfiles, HyprMac.</title>
+<title id="t">Greg Zalewski, Staff Software Engineer at Redocly. Projects: gzyms, dotfiles, home-lab, HyprMac.</title>
 <style>
 text{{font:{FS}px "JetBrains Mono","SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace;white-space:pre}}
 .b{{font-weight:700}}
@@ -94,8 +94,7 @@ text{{font:{FS}px "JetBrains Mono","SF Mono",Menlo,Consolas,"DejaVu Sans Mono",m
 </style>
 <rect width="{W}" height="{H}" rx="12" fill="{BG}"/>
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="12" fill="none" stroke="#585B70" stroke-opacity=".6"/>
-<circle cx="22" cy="20" r="6" fill="#FF5F57"/><circle cx="42" cy="20" r="6" fill="#FEBC2E"/><circle cx="62" cy="20" r="6" fill="#28C840"/>
-<text x="{W / 2}" y="25" fill="{DIM}" text-anchor="middle" font-size="12">nu — ~</text>''']
+''']
 
 for i, spans in enumerate(lines):
     # textLength pins every span to the grid whatever monospace font the viewer has; emoji are left alone
