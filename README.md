@@ -2,8 +2,6 @@
 
 ### [gzyms](https://gzyms.dev): my own status bar for macOS
 
-<img src="https://raw.githubusercontent.com/zalewskigrzegorz/gzyms/main/assets/readme/banner.png" width="420" alt="A gzyms banner with its key hints: o open, x dismiss, z snooze">
-
 Workspaces, notifications and meetings, up where your eyes already are, at ~0% CPU.
 
 ```sh
