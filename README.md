@@ -2,10 +2,10 @@
 
 ### [gzyms](https://gzyms.dev): my own status bar for macOS
 
-Workspaces, notifications and meetings, up where your eyes already are, at ~0% CPU.
+It takes the place of the macOS menu bar and shows what I actually look at: workspaces from OmniWM, HyprMac or AeroSpace, notifications from every app, my coding agents and what they wait for, CI and pull requests, meetings with a join link. All at ~0% CPU, and all of it works from the keyboard.
 
 ```sh
 brew install zalewskigrzegorz/tap/gzyms
 ```
 
-[dotfiles](https://github.com/zalewskigrzegorz/dotfiles) · [LinkedIn](https://www.linkedin.com/in/grzegorzzalewski/)
+[gzyms.dev](https://gzyms.dev) · [dotfiles](https://github.com/zalewskigrzegorz/dotfiles) · [LinkedIn](https://www.linkedin.com/in/grzegorzzalewski/)
