@@ -2,8 +2,7 @@
 
 ### [gzyms](https://gzyms.dev): my own status bar for macOS
 
-<img src="https://raw.githubusercontent.com/zalewskigrzegorz/gzyms/main/assets/readme/bar-left.png" width="100%" alt="The left side of the gzyms bar: workspaces with their apps, agents, GitHub builds and pull requests">
-<img src="https://raw.githubusercontent.com/zalewskigrzegorz/gzyms/main/assets/readme/bar-right.png" width="100%" alt="The right side of the gzyms bar: CPU, memory, network, screen, Do Not Disturb, caffeine, battery and the clock">
+<img src="https://raw.githubusercontent.com/zalewskigrzegorz/gzyms/main/assets/readme/banner.png" width="420" alt="A gzyms banner with its key hints: o open, x dismiss, z snooze">
 
 Workspaces, notifications and meetings, up where your eyes already are, at ~0% CPU.
 
